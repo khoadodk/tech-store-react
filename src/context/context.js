@@ -15,10 +15,11 @@ class ProductProvider extends Component {
         cart: [],
         cartTax: 0,
         cartTotal: 0,
+        cartSubtotal: 0,
         storeProducts: [],
         filteredProducts: [],
         featuredProducts: [],
-        singleProducts: {},
+        singleProduct: {},
         loading: true
     };
 
@@ -45,31 +46,89 @@ class ProductProvider extends Component {
     };
     //get Cart from local storage
     getStorageCart = () => {
-        return [];
+        let cart;
+        if(localStorage.getItem("cart")) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+        } else {
+            cart = [];
+        }
+        return cart;
     }
     //get product from local storage
     getStorageProduct = () => {
-        return [];
+        return localStorage.getItem("singleProduct") 
+            ? JSON.parse(localStorage.getItem("singleProduct"))
+            : {};
     }
     //get totals
     getTotals = () => {
-
+        let subTotal = 0;
+        let cartItems = 0;
+        this.state.cart.forEach(item => {
+            subTotal += item.total;
+            cartItems += item.count;
+        });
+        subTotal = parseFloat(subTotal.toFixed(2));
+        let tax = subTotal * 0.2;
+        tax = parseFloat(tax.toFixed(2));
+        let total = subTotal + tax;
+        total = parseFloat(total.toFixed(2));
+        return {
+            cartItems,
+            subTotal,
+            tax,
+            total
+        }
     }
     // add totals
     addTotals = () => {
-
+        const totals = this.getTotals();
+        this.setState({
+            cartItems: totals.cartItems,
+            cartSubtotal: totals.subTotal,
+            cartTax: totals.tax,
+            cartTotal: totals.total
+        })
     }
     //sync storage
     syncStorage = () => {
-
+        localStorage.setItem("cart", JSON.stringify(this.state.cart));
     }
     //add to cart
     addToCart = (id) => {
-        console.log(`add to cart ${id}`)
+        let existingCart = [...this.state.cart];
+        let existingProducts = [...this.state.storeProducts];
+        let existingItem = existingCart.find(item => item.id === id);
+        //if item is not in the cart, add count and total to cart
+        if(!existingItem) {
+            existingItem = existingProducts.find(item => item.id === id);
+            let total = existingItem.price;
+            let cartItem = { ...existingItem, count: 1, total };
+            existingCart = [ ...existingCart, cartItem]
+        } else {
+            existingItem.count++;
+            existingItem.total = existingItem.price * existingItem.count;
+            existingItem.total = parseFloat(existingItem.total.toFixed(2));
+        }
+        this.setState(
+            () => {
+                return { cart: existingCart };
+            },
+            () => {
+                this.addTotals();
+                this.syncStorage();
+                this.openCart();
+            }
+        )
     }
     //set single product
     setSingleProduct = (id) => {
-        console.log(`set single product ${id}`)
+        let product = this.state.storeProducts.find(item => item.id === id)
+        localStorage.setItem("product", JSON.stringify(product));
+        this.setState({
+            singleProduct: {...product},
+            loading: false
+        })
     }
 
     handleSidebar = () => this.setState({sidebarOpen: !this.state.sidebarOpen});
