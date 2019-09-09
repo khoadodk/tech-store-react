@@ -42,6 +42,8 @@ class ProductProvider extends Component {
             cart: this.getStorageCart(),
             singleProduct: this.getStorageProduct(),
             loading: false
+        }, () => {
+            this.addTotals();
         })
     };
     //get Cart from local storage
@@ -124,7 +126,7 @@ class ProductProvider extends Component {
     //set single product
     setSingleProduct = (id) => {
         let product = this.state.storeProducts.find(item => item.id === id)
-        localStorage.setItem("product", JSON.stringify(product));
+        localStorage.setItem("singleProduct", JSON.stringify(product));
         this.setState({
             singleProduct: {...product},
             loading: false
