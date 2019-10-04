@@ -2,9 +2,9 @@ export const items = [
   {
     sys: { id: 0 },
     fields: {
-      title: "google pixel - black",
+      title: "iphone X",
       price: 10,
-      company: "google",
+      company: "apple",
       description:
         "Shaman hexagon fam activated charcoal literally cardigan. Pitchfork YOLO man bun hella. Trust fund vexillologist squid put a bird on it man braid, selvage pug. Schlitz kombucha chillwave pug shabby chic cornhole. Try-hard four loko listicle yuccie kitsch small batch narwhal celiac selfies distillery cloud bread farm-to-table art party leggings glossier.",
       featured: true,
@@ -15,70 +15,70 @@ export const items = [
     sys: { id: 1 },
 
     fields: {
-      title: "samsung s7 - white",
+      title: "iphone 11",
       price: 20,
-      company: "samsung",
+      company: "apple",
       description:
         "Shaman hexagon fam activated charcoal literally cardigan. Pitchfork YOLO man bun hella. Trust fund vexillologist squid put a bird on it man braid, selvage pug. Schlitz kombucha chillwave pug shabby chic cornhole. Try-hard four loko listicle yuccie kitsch small batch narwhal celiac selfies distillery cloud bread farm-to-table art party leggings glossier.",
       featured: false,
 
-      image: { fields: { file: { url: "img/product-1.png" } } }
+      image: { fields: { file: { url: "img/product-1.jpg" } } }
     }
   },
   {
     sys: { id: 2 },
 
     fields: {
-      title: "htc 10 - black",
+      title: "iphone 8 - silver",
       price: 30,
-      company: "htc",
+      company: "apple",
       description:
         "Shaman hexagon fam activated charcoal literally cardigan. Pitchfork YOLO man bun hella. Trust fund vexillologist squid put a bird on it man braid, selvage pug. Schlitz kombucha chillwave pug shabby chic cornhole. Try-hard four loko listicle yuccie kitsch small batch narwhal celiac selfies distillery cloud bread farm-to-table art party leggings glossier.",
       featured: false,
 
-      image: { fields: { file: { url: "img/product-2.png" } } }
+      image: { fields: { file: { url: "img/product-2.jpg" } } }
     }
   },
   {
     sys: { id: 3 },
 
     fields: {
-      title: "htc 10 - white",
+      title: "htc 10 - black",
       price: 15,
       company: "htc",
       description:
         "Shaman hexagon fam activated charcoal literally cardigan. Pitchfork YOLO man bun hella. Trust fund vexillologist squid put a bird on it man braid, selvage pug. Schlitz kombucha chillwave pug shabby chic cornhole. Try-hard four loko listicle yuccie kitsch small batch narwhal celiac selfies distillery cloud bread farm-to-table art party leggings glossier.",
       featured: false,
 
-      image: { fields: { file: { url: "img/product-3.png" } } }
+      image: { fields: { file: { url: "img/product-3.jpg" } } }
     }
   },
   {
     sys: { id: 4 },
 
     fields: {
-      title: "samsung s7 - black",
+      title: "samsung s10 - black",
       price: 45,
-      company: "google",
+      company: "samsung",
       description:
         "Shaman hexagon fam activated charcoal literally cardigan. Pitchfork YOLO man bun hella. Trust fund vexillologist squid put a bird on it man braid, selvage pug. Schlitz kombucha chillwave pug shabby chic cornhole. Try-hard four loko listicle yuccie kitsch small batch narwhal celiac selfies distillery cloud bread farm-to-table art party leggings glossier.",
       featured: false,
 
-      image: { fields: { file: { url: "img/product-4.png" } } }
+      image: { fields: { file: { url: "img/product-4.jpg" } } }
     }
   },
   {
     sys: { id: 5 },
 
     fields: {
-      title: "samsung galaxy A8 - black",
+      title: "google pixel 3 - black",
       price: 55,
-      company: "samsung",
+      company: "google",
       description:
         "Shaman hexagon fam activated charcoal literally cardigan. Pitchfork YOLO man bun hella. Trust fund vexillologist squid put a bird on it man braid, selvage pug. Schlitz kombucha chillwave pug shabby chic cornhole. Try-hard four loko listicle yuccie kitsch small batch narwhal celiac selfies distillery cloud bread farm-to-table art party leggings glossier.",
       featured: false,
 
-      image: { fields: { file: { url: "img/product-5.png" } } }
+      image: { fields: { file: { url: "img/product-5.jpg" } } }
     }
   },
 
